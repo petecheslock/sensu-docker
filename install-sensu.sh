@@ -14,3 +14,5 @@ cd /tmp/sensu-certs/
 mkdir /etc/sensu/ssl/
 cp client_key.pem /etc/sensu/ssl/
 cp client_cert.pem /etc/sensu/ssl/
+
+chown -R sensu:sensu /etc/sensu/
