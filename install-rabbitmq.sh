@@ -14,4 +14,3 @@ apt-get update
 apt-get -y --allow-unauthenticated --force-yes install rabbitmq-server
 
 rabbitmq-plugins enable rabbitmq_management
-rabbitmq-server -detached
