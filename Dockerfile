@@ -19,15 +19,7 @@ RUN /tmp/install-sensu.sh
 ADD config.json /etc/sensu/
 ADD client.json /etc/sensu/conf.d/client.json
 
-EXPOSE 55672
+EXPOSE 15672
 EXPOSE 8080
-CMD /etc/init.d/rabbitmq-server start
-CMD rabbitmqctl add_vhost /sensu
-CMD rabbitmqctl add_user sensu mypass
-CMD rabbitmqctl set_permissions -p /sensu sensu ".*" ".*" ".*"
-CMD /etc/init.d/redis-server start
-CMD /etc/init.d/sensu-server start
-CMD /etc/init.d/sensu-api start
-CMD /etc/init.d/sensu-client start
-CMD /etc/init.d/sensu-dashboard start
-
+ADD start.sh /tmp/start.sh
+CMD /tmp/start.sh
