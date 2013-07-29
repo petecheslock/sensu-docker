@@ -1,24 +1,24 @@
 #!/bin/bash
-RUN git clone https://github.com/joemiller/joemiller.me-intro-to-sensu.git ~/sensu-certs/
-RUN ~/sensu-certs/ssl_certs.sh clean
-RUN ~/sensu-certs/ssl_certs.sh generate
+git clone https://github.com/joemiller/joemiller.me-intro-to-sensu.git ~/sensu-certs/
+~/sensu-certs/ssl_certs.sh clean
+~/sensu-certs/ssl_certs.sh generate
 
-RUN mkdir /etc/rabbitmq/ssl
-RUN cp server_key.pem /etc/rabbitmq/ssl/
-RUN cp server_cert.pem /etc/rabbitmq/ssl/
-RUN cp testca/cacert.pem /etc/rabbitmq/ssl/
+mkdir /etc/rabbitmq/ssl
+cp server_key.pem /etc/rabbitmq/ssl/
+cp server_cert.pem /etc/rabbitmq/ssl/
+cp testca/cacert.pem /etc/rabbitmq/ssl/
 
-RUN apt-get -y install erlang-nox
-RUN echo "deb http://www.rabbitmq.com/debian/ testing main"
-RUN >/etc/apt/sources.list.d/rabbitmq.list
+apt-get -y install erlang-nox
+echo "deb http://www.rabbitmq.com/debian/ testing main"
+>/etc/apt/sources.list.d/rabbitmq.list
 
-RUN curl -L -o ~/rabbitmq-signing-key-public.asc http://www.rabbitmq.com/rabbitmq-signing-key-public.asc
-RUN apt-key add ~/rabbitmq-signing-key-public.asc
+curl -L -o ~/rabbitmq-signing-key-public.asc http://www.rabbitmq.com/rabbitmq-signing-key-public.asc
+apt-key add ~/rabbitmq-signing-key-public.asc
 
-RUN apt-get update
-RUN apt-get -y --allow-unauthenticated --force-yes install rabbitmq-server
+apt-get update
+apt-get -y --allow-unauthenticated --force-yes install rabbitmq-server
 
-ADD rabbitmq.config /etc/rabbitmq/rabbitmq.config
+rabbitmq.config /etc/rabbitmq/rabbitmq.config
 
 update-rc.d rabbitmq-server defaults
 /etc/init.d/rabbitmq-server start
