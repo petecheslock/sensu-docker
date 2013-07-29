@@ -8,4 +8,4 @@ rabbitmqctl set_user_tags sensu administrator
 /etc/init.d/sensu-server start
 /etc/init.d/sensu-api start
 /etc/init.d/sensu-client start
-/etc/init.d/sensu-dashboard start
+/opt/sensu/embedded/bin/ruby /opt/sensu/bin/sensu-dashboard -c /etc/sensu/config.json -d /etc/sensu/conf.d -e /etc/sensu/extensions -p /var/run/sensu/sensu-dashboard.pid -l /var/log/sensu/sensu-dashboard.log
