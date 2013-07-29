@@ -1,0 +1,7 @@
+ {
+      "client": {
+        "name": "sensu-server.dom.tld",
+        "address": "10.0.0.1",
+        "subscriptions": [ "test" ]
+      }
+    }
