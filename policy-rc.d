@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DISABLE_ACTIONS=(start)
+DISABLE_ACTIONS=(start restart)
 DISABLED_SERVICES=(rabbitmq-server)
 
 longoptions='quiet,force,try-anyway,disclose-deny,query,no-fallback,help'
