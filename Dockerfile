@@ -10,5 +10,7 @@ RUN useradd -d /home/sensu -m -s /bin/bash sensu
 RUN echo sensu:sensu | chpasswd
 RUN echo 'sensu ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers.d/sensu
 
+ADD policy-rc.d /usr/sbin/policy-rc.d
+
 ADD install-rabbitmq.sh /tmp/
 RUN /tmp/install-rabbitmq.sh

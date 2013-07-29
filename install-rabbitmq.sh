@@ -20,9 +20,6 @@ apt-get -y --allow-unauthenticated --force-yes install rabbitmq-server
 
 rabbitmq.config /etc/rabbitmq/rabbitmq.config
 
-update-rc.d rabbitmq-server defaults
-/etc/init.d/rabbitmq-server start
-
 rabbitmqctl add_vhost /sensu
 rabbitmqctl add_user sensu mypass
 rabbitmqctl set_permissions -p /sensu sensu ".*" ".*" ".*"
