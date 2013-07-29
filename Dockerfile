@@ -3,6 +3,8 @@ MAINTAINER Pete Cheslock <petecheslock@gmail.com>
 
 RUN echo "deb http://archive.ubuntu.com/ubuntu precise universe" >> /etc/apt/sources.list
 RUN apt-get install -y sudo openssh-server curl lsb-release git
+RUN dpkg-divert --local --rename --add /sbin/initctl
+RUN ln -s /bin/true /sbin/initctl
 RUN mkdir -p /var/run/sshd
 RUN echo '127.0.0.1 localhost.localdomain localhost' >> /etc/hosts
 RUN useradd -d /home/sensu -m -s /bin/bash sensu

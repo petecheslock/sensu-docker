@@ -7,11 +7,8 @@ echo "deb     http://repos.sensuapp.org/apt sensu main" > /etc/apt/sources.list.
 apt-get update
 apt-get install sensu
 
-git clone https://github.com/joemiller/joemiller.me-intro-to-sensu.git /tmp/sensu-certs
-cd /tmp/sensu-certs/
-./ssl_certs.sh clean
-./ssl_certs.sh generate
 mkdir /etc/sensu/ssl/
+cd /tmp/sensu-certs/
 cp client_key.pem /etc/sensu/ssl/
 cp client_cert.pem /etc/sensu/ssl/
 
