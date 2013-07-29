@@ -11,6 +11,12 @@ RUN echo sensu:sensu | chpasswd
 RUN echo 'sensu ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers.d/sensu
 
 ADD policy-rc.d /usr/sbin/policy-rc.d
+ADD rabbitmq.config /etc/rabbitmq/rabbitmq.config
 
 ADD install-rabbitmq.sh /tmp/
 RUN /tmp/install-rabbitmq.sh
+
+CMD /etc/init.d/rabbitmq-server start
+CMD rabbitmqctl add_vhost /sensu
+CMD rabbitmqctl add_user sensu mypass
+CMD rabbitmqctl set_permissions -p /sensu sensu ".*" ".*" ".*"
