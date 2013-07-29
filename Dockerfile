@@ -10,6 +10,7 @@ RUN echo sensu:sensu | chpasswd
 RUN echo 'sensu ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers.d/sensu
 
 ADD policy-rc.d /usr/sbin/policy-rc.d
+ADD rabbitmq.config /etc/rabbitmq/rabbitmq.config
 
 ADD install-rabbitmq.sh /tmp/
 RUN /tmp/install-rabbitmq.sh
@@ -19,7 +20,7 @@ RUN /tmp/install-sensu.sh
 ADD config.json /etc/sensu/
 ADD client.json /etc/sensu/conf.d/client.json
 
-EXPOSE 15672
+EXPOSE 15672:15672
 EXPOSE 8080
 ADD start.sh /tmp/start.sh
 CMD /tmp/start.sh
