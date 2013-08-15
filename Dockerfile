@@ -14,9 +14,6 @@ RUN chmod 0440 /etc/sudoers.d/sensu
 
 ADD policy-rc.d /usr/sbin/policy-rc.d
 
-ADD install-rabbitmq.sh /tmp/
-RUN /tmp/install-rabbitmq.sh
-
 ADD install-sensu.sh /tmp/
 RUN /tmp/install-sensu.sh
 ADD config.json /etc/sensu/
