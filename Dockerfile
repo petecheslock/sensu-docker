@@ -10,6 +10,7 @@ RUN echo '127.0.0.1 localhost.localdomain localhost' >> /etc/hosts
 RUN useradd -d /home/sensu -m -s /bin/bash sensu
 RUN echo sensu:sensu | chpasswd
 RUN echo 'sensu ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers.d/sensu
+RUN chmod 0440 /etc/sudoers.d/sensu
 
 ADD policy-rc.d /usr/sbin/policy-rc.d
 
