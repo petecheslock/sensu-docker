@@ -3,6 +3,8 @@ sensu-docker
 
 Dockerfile to Create a Sensu Server
 
+Grab the container from the docker index here.  https://index.docker.io/u/petecheslock/sensu/
+
 This is for testing only - SSL is not setup/configured for the server and clients.
 
 Port `15672` is where the rabbitmq management dashboard is running on (`un: sensu pw: mypass`)
