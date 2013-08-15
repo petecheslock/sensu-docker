@@ -15,7 +15,6 @@ ADD policy-rc.d /usr/sbin/policy-rc.d
 
 ADD install-rabbitmq.sh /tmp/
 RUN /tmp/install-rabbitmq.sh
-ADD rabbitmq.config /etc/rabbitmq/rabbitmq.config
 
 ADD install-sensu.sh /tmp/
 RUN /tmp/install-sensu.sh
