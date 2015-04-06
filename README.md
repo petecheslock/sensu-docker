@@ -3,10 +3,7 @@ sensu-docker
 
 Dockerfile to Create a Sensu Server
 
-Grab the container from the docker index here.  https://index.docker.io/u/petecheslock/sensu/
-
-In some cases it's faster to build the docker container locally rather than pulling from the index.
-`sudo docker build github.com/petecheslock/sensu-docker`
+This is old and busted and you probably shouldn't use it for anything other than local testing. Considering it's using an older version of Sensu, you probably shouldn't use this at all.
 
 This is for testing only - SSL is not setup/configured for the server and clients.
 
